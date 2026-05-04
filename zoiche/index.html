@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duner kebap “ZOICHETO"</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="Gemini_Generated_Image_i1jcfni1jcfni1jc-removebg-preview.png">
+</head>
+<body>
+
+    <!-- НАВИГАЦИЯ -->
+<header class="main-header">
+    <div class="logo">
+        <!-- Добавяме линк около логото -->
+        <a href="#home">
+            <img src="IMG_0040-removebg-preview.png" alt="При Зойчето" class="logo-img">
+        </a>
+    </div>
+
+    <nav class="desktop-nav">
+        <!-- ... останалата част от навигацията си остава същата ... -->
+
+    <nav class="desktop-nav">
+    <a href="#home">Начало</a>
+    <a href="#location" class="location-link">📍 Къде сме?</a>
+    
+    <div class="dropdown">
+        <a href="#menu-anchor" class="dropbtn">Меню ▾</a>
+        <div class="dropdown-content">
+            <a href="#menu-anchor" onclick="filterCategory('all', this)">Всичко</a>
+            <a href="#menu-anchor" onclick="filterCategory('doner', this)">Дюнери</a>
+            <a href="#menu-anchor" onclick="filterCategory('burger', this)">Бургери</a>
+            <a href="#menu-anchor" onclick="filterCategory('portion', this)">Порции</a>
+        </div>
+    </div>
+    
+    <a href="#footer">Контакти</a>
+</nav>
+    <button class="cart-btn" onclick="toggleCart()">
+        🛒 <span id="cartCount" class="cart-count">0</span>
+    </button>
+</header>
+
+    <!-- НАЧАЛНА СТРАНИЦА (HERO) -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>ИСТИНСКИЯТ ВКУС <br><span>НА ТРАДИЦИЯТА</span></h1>
+            <p>Най-добрите дюнери и бургери, приготвени пред очите ви с пресни продукти и много любов.</p>
+          <div class="hero-btns">
+    <a href="#menu-anchor" class="btn-primary">ПОРЪЧАЙ СЕГА</a>
+    <a href="https://share.google/TOoJKj65E1yT55HjS" target="_blank" class="btn-secondary">📍 НАМЕРИ НИ В GOOGLE MAPS</a>
+</div>
+        </div>
+    </section>
+
+    <!-- КАТЕГОРИИ -->
+    <section id="menu-anchor" class="menu-section">
+        <div class="section-header">
+            <h2>НАШЕТО МЕНЮ</h2>
+            <div class="category-nav">
+                <button class="active" onclick="filterCategory('all', this)">Всичко</button>
+                <button onclick="filterCategory('doner', this)">Дюнери</button>
+                <button onclick="filterCategory('burger', this)">Бургери</button>
+                <button onclick="filterCategory('portion', this)">Порции</button>
+            </div>
+        </div>
+
+        <!-- МЕНЮ ГРИД -->
+        <div class="menu-grid" id="menuItems">
+            <!-- Продуктите идват от JS -->
+        </div>
+    </section>
+
+    <!-- МОДАЛ ЗА ОПЦИИ -->
+    <div id="optionsModal" class="modal">
+        <div class="modal-content">
+            <h2 id="modalTitle">Персонализирай</h2>
+            <div id="extraOptions" class="extras-grid">
+                <label class="extra-item"><input type="checkbox" value="Чеснов сос"> <span>Чеснов сос</span></label>
+                <label class="extra-item"><input type="checkbox" value="Лютив сос"> <span>Лютив сос</span></label>
+                <label class="extra-item"><input type="checkbox" value="Без лук"> <span>Без лук</span></label>
+                <label class="extra-item"><input type="checkbox" value="Екстра месо"> <span>Екстра месо (+1.50€)</span></label>
+            </div>
+            <button class="confirm-btn" onclick="confirmAdd()">ДОБАВИ В КОЛИЧКАТА</button>
+            <button class="close-modal" onclick="closeModal()">ОТКАЗ</button>
+        </div>
+    </div>
+
+    <!-- КОЛИЧКА (SIDEBAR) -->
+    <div id="cartSidebar" class="cart">
+        <div class="cart-header">
+            <h2>Твоята поръчка</h2>
+            <button class="close-cart" onclick="toggleCart()">&times;</button>
+        </div>
+        <ul id="cartList" class="cart-items"></ul>
+        <div class="cart-footer">
+            <div class="total-row">
+                <span>ОБЩА СУМА:</span>
+                <span class="total-price"><span id="totalPrice">0.00</span> €</span>
+            </div>
+            <button class="checkout-btn" onclick="processOrder()">ЗАВЪРШИ ПОРЪЧКАТА</button>
+        </div>
+    </div>
+    <section id="location" class="location-section">
+   
+    
+<div class="section-header">
+        <h2>КЪДЕ СЕ НАМИРАМЕ</h2>
+        <p>гр. Бургас, ж.к. Възраждане, ул. "Шейново" 84</p>
+        <p>Заповядайте при нас за най-вкусния дюнер в Бургас!</p>
+    </div>
+    
+    <div class="map-container">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2941.171635398717!2d27.466548776572573!3d42.49861697118128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40a694998782071d%3A0xc324749f7e52a8a5!2z0YPQuy4g0KjQtdC50L3QvtCy0L4gODQsIDgwMDAg0JHRg9GA0LPQsNGB!5e0!3m2!1sbg!2sbg!4v1715000000000!5m2!1sbg!2sbg" 
+            width="100%" 
+            height="450" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="https://www.google.com/maps/dir/?api=1&destination=42.498617,27.469124" target="_blank" class="btn-primary" style="padding: 10px 20px; font-size: 14px;">ОТВОРИ НАВИГАЦИЯ</a>
+    </div>
+
+    <section id="contacts" class="contacts-section">
+    <div class="section-header">
+        <h2>СВЪРЖЕТЕ СЕ С НАС</h2>
+        <p>Имате въпроси или искате да поръчате по телефона?</p>
+    </div>
+
+    <div class="contacts-grid">
+        <!-- Карта за Телефон -->
+        <a href="tel:+359888123456" class="contact-card">
+            <div class="contact-icon">📞</div>
+            <h3>Телефон</h3>
+            <p>+359 88 958 526</p>
+            <span>Позвънете ни</span>
+        </a>
+
+        <!-- Карта за Имейл -->
+        <a href="mailto:office@prizoycheto.bg" class="contact-card">
+            <div class="contact-icon">✉️</div>
+            <h3>Имейл</h3>
+            <p>Ivailo_813@abv.bg</p>
+            <span>Пишете ни</span>
+        </a>
+
+        <!-- Работно време (за професионален облик) -->
+        <div class="contact-card no-link">
+            <div class="contact-icon">🕒</div>
+            <h3>Работно време</h3>
+            <p>Всеки делник: 8:00 - 18:00</p>
+            <p>Събота/Неделя: Затворено</p>
+            <span>Очакваме ви!</span>
+        </div>
+    </div>
+</section>
+
+    <footer id="footer">
+        <p>&copy; 2026 При Зойчето. Всички права са запазени.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
